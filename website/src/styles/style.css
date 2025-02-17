@@ -1,0 +1,354 @@
+:root {
+    --text-color: rgba(255,255,255,1); /* #ffffff to #000000 */
+    --opposite-text-color: rgba(0,0,0,1); /* #000000 to #ffffff */
+    --bg-color: rgba(15,15,15,1); /* #1e1e1e to #e1e1e1 */
+    --light-mode: -1;
+}
+
+::-webkit-scrollbar { width: 0 !important }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--text-color-placeholder) !important;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--text-color-placeholder) !important;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--text-color-placeholder) !important;
+}
+
+::selection {
+    background: #007000; /* WebKit/Blink Browsers */
+    color: #00ff00;
+}
+::-moz-selection {
+    background: #007000; /* Gecko Browsers */
+    color: #ffffff;
+}
+
+* {
+    box-sizing: border-box; 
+    
+}
+
+html {
+    scroll-snap-type: y mandatory;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    transition-duration: 1s;
+}
+
+body {
+    min-height: 100svh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+div, nav {
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
+}
+
+button {
+    transition-duration: 0.1s;
+}
+
+.cursor {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    transition: all 200ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+
+    background: linear-gradient(180deg, rgb(0, 156, 225) 2.3%, rgb(55, 204, 255) 98.3%);
+    opacity: 0.9;
+    
+    z-index: 1000;
+}
+
+
+/* Floating-UI Modules */
+.TooltipContainer {
+    position: relative;
+}
+
+.social-button-div.contains-tooltip .Tooltip-Ref {
+    border-radius: 50% !important;
+}
+
+.TooltipTrigger {
+    padding: 0;
+    background-color: rgba(0,0,0,0);
+    border: 0px solid rgba(0,0,0,0);
+}
+
+.TooltipTrigger:has(> .social-button) {
+    border: 0px solid rgba(0,0,0,0);
+    overflow: hidden;
+}
+
+.Tooltip {
+
+    white-space: nowrap;
+    background-color: var(--opposite-text-color) !important;
+    color: var(--text-color);
+    z-index: 2000;
+    padding: 0.5rem;
+
+    font-family: 'WorkSans', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    border-radius: 5px;
+}
+
+
+
+/* Navbar */
+.navbar {
+    background-color: rgba(0,0,0,0) !important;
+    z-index: 100;
+    height: 6rem;
+    padding: 1rem 0;
+    transition-duration: 0.2s;
+}
+
+.navbar.scrolledDown {
+    background-color: #000 !important;
+    
+    
+    z-index: 100;
+    padding: 2rem 0;
+}
+
+.navbar.scrolledDown .navbar-brand,
+.navbar.scrolledDown .nav-link {
+    color: #fff !important;
+}
+
+.navbar-brand {
+    color: var(--text-color);
+    font-family: 'Kanit', 'Arial Narrow Bold', sans-serif;
+    letter-spacing: -0.5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.75rem;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--text-color);
+}
+
+.nav-item {
+    margin: 0 0.5rem;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-family: 'Barlow', Impact, sans-serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    transition-duration: 0.1s;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active:hover,
+.nav-link.active:focus {
+    background-color: var(--text-color);
+    color: var(--opposite-text-color) !important;
+}
+
+
+.dropdown-menu {
+    background-color: #000;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff;
+    font-family: 'Barlow', Impact, sans-serif;
+    font-weight: 300;
+    font-size: 1.15rem;
+
+    text-align: left;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    background-color: #fff;
+    color: #000;
+}
+
+.dropdown-toggle i {
+    margin-left: 7.5px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    height: 100%;
+}
+
+.dropdown-toggle::after,
+.dropend-toggle::after {
+    display: none;
+}
+
+
+#dark-mode-toggle {
+    aspect-ratio : 1 / 1;
+    height: 100%;
+    margin: 0 10px;
+
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: rgba(0,0,0,0);
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+}
+
+#dark-mode-toggle:hover,
+#dark-mode-toggle:focus {
+    color: var(--bg-color);
+    background-color: var(--text-color);
+}
+
+
+/* Jumbo */
+.jumbo {
+    height: max(500px, 100svh);
+    color: var(--text-color);
+}
+
+.jumbo h1 {
+    font-family: 'Kanit', Impact,  'Arial Narrow Bold', sans-serif;
+    
+    font-style: normal;
+    font-weight: 100;
+    font-size: 6rem;
+    
+    word-spacing: 1px;
+}
+
+.jumbo .job {
+    font-family: 'Barlow', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+
+    margin-left: 4px;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+}
+
+.jumbo .view-portfolio {
+    background-color: rgba(0,0,0,0);
+    border: 1.5px solid var(--text-color);
+    border-radius: 0; 
+    color: var(--text-color);
+    font-family: 'Kanit', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+
+    margin: 0.5rem 4px;
+    padding: 0.75rem 1rem;
+    
+    --bs-btn-active-bg: var(--text-color) !important;
+    --bs-btn-active-color: var(--opposite-text-color) !important;
+    --bs-btn-active-border-color: var(--text-color) !important;
+}
+
+.jumbo .view-portfolio:hover {
+    background-color: var(--text-color);
+    color: var(--opposite-text-color);
+    border: 1.5px solid var(--text-color);
+}
+
+
+/* Carousel */
+.project-carousel {
+    width: max-content;
+    height: calc(100svh - 6rem);
+    z-index: 50;
+    flex-wrap: nowrap;
+}
+
+.carousel-item-div {
+    position: relative;
+    width: 100svw;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.carousel-item-container {
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    padding: 3rem;
+
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+}
+
+.carousel-item-image-container {
+    width: 50%;
+}
+
+.carousel-item-content {
+    width: 50%;
+    padding: 5%;
+}
+
+.carousel-item-content h1 {
+    font-family: 'Kanit', Impact,  'Arial Narrow Bold', sans-serif;
+    
+    font-style: normal;
+    font-weight: 100;
+    font-size: 4rem;
+    
+    word-spacing: 1px;
+}
+
+.carousel-item-content p {
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 1.25rem;
+
+    margin-left: 4px;
+    word-spacing: 1px;
+}
+
+.carousel-item-image {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* About Me */
+.about {
+    height: max(500px, 100svh);
+    color: var(--text-color);
+}
+
+.about h2 {
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 4rem;
+}
+
+.about p {
+    color: var(--text-color);
+    font-family: 'Kanit', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 200;
+
+    font-size: 1.2rem;
+    
+    letter-spacing: 0.2px;
+    word-spacing: 1px;
+}

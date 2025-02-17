@@ -1,0 +1,51 @@
+---
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import NavbarDiv from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+type Item = {
+  title: string,
+  type: string,
+  href: string,
+  categories: string[],
+}
+
+interface Props {
+  items: Item[],
+}
+
+const {items} = Astro.props as Props;
+
+---
+
+<NavbarDiv collapseOnSelect expand="lg" className="fixed-top bg-body-tertiary" id="navbar">
+  <Container>
+    <NavbarDiv.Brand href="#home">Rishi Prasanna</NavbarDiv.Brand>
+    <NavbarDiv.Toggle aria-controls="responsive-navbar-nav" />
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="ms-auto navbar-nav">
+        {items.map((item) => (
+          item.type == "list"
+          ? <li class="nav-item dropdown-center dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {item.title}
+                <i class="fa-light fa-sort-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                {item.categories.map((category) => (
+                  <li><a class="dropdown-item" href="#">{category}</a></li>
+                ))}
+              </ul>
+            </li>
+          : <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">{item.title}</a>
+            </li>
+        ))}
+        <li class="nav-item d-flex align-items-center justify-content-center">
+            <button id="dark-mode-toggle" class="dark-mode-btn d-flex align-items-center justify-content-center" aria-current="page"><i class="fa-solid fa-moon"></i></button>
+        </li>
+      </ul>
+    </div>
+  </Container>
+</NavbarDiv>

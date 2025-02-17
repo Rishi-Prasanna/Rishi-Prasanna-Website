@@ -1,0 +1,18 @@
+---
+import { motion } from "motion/react";
+
+const { header, about } = Astro.props;
+---
+<section class="main about d-flex align-items-center" id="about" data-scroll-section>
+    <motion.div className="container" client:only="react" initial={{opacity: 0, translateY: 100}} whileInView={{opacity: 1, translateY: 0, transition: {duration: 0.75, ease: "easeInOut"},}} >
+        <div class="row">
+            <div class="col text-left">
+                <h2>{header}</h2>
+                <p>{about}</p>
+            </div>
+            <div class="col text-center">
+                
+            </div>
+        </div>
+    </motion.div>
+</section>

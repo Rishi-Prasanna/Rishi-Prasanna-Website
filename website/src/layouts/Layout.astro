@@ -1,0 +1,103 @@
+---
+import { ClientRouter } from 'astro:transitions';
+
+// Font Awesome 6
+import '../libraries/font-awesome/font-awesome-pro-main/fontawesome-pro-6.5.1-web/css/all.css';
+
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
+
+// My CSS
+import '/src/styles/fonts.css';
+import '/src/styles/style.css';
+
+// My JS
+import tooltips from "../scripts/tooltips.js?url";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+
+<head>
+    <title>{title}</title>
+    <ClientRouter />
+    
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <script defer src={bootstrap}></script>
+    <script src="../scripts/cursor.js"></script>
+    <script src="../scripts/animations.js"></script>
+    
+</head>
+
+<body>
+    <noscript>
+        <div class="text-center">
+            <div class="centered">
+                <h1>JavaScript Disabled</h1>
+                <p>This portfolio website requires JavaScript in order to function properly and provide a stunning experience. <b>Please enable JavaScript.</b></p>
+                <p>Don't worry--the only cookies I'm using are for user accessibility preferences on this site, and will not exist outside of this site.</p>
+            </div>
+        </div>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html, body {
+                overflow: hidden;
+            }
+
+            .text-center {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 100000;
+                background-color: #222222;
+                color: #ffffff;
+            }
+            
+            .centered {
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+            }
+
+            .text-center h1 {
+                font-family: "Kanit Semibold", Arial Black;
+                font-size: 2.5rem;
+            }
+
+            .text-center p {
+                font-family: "Kanit Light", Calibri;
+                font-size: 1.25rem;
+                letter-spacing: 0.35px;
+                padding: 1rem 0;
+            }
+
+            .text-center p b {
+                font-family: "Kanit Medium", Calibri;
+                font-size: 1.25rem;
+            }
+        </style>
+    </noscript>
+
+    <slot />
+    
+</body>
+
+</html>

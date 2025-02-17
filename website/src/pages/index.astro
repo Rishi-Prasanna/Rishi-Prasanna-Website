@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Navbar from '../components/Navbar.astro';
+import Jumbo from '../components/Jumbo.astro';
+import Carousel from '../components/Carousel.astro';
+import About from '../components/About.astro';
+---
+
+<Layout title="Rishi Prasanna">
+
+<div class="cursor"></div>
+
+
+<Navbar items={[
+	{
+		title: "Home",
+		type: "string",
+		href: "#home",
+		categories: [],
+	},
+	{
+		title: "My Work",
+		type: "list",
+		href: "#portfolio",
+		categories: [
+            "All Work",
+			"Web Development",
+			"Graphic Design",
+			"Font Design",
+            "Back End",
+		],
+	},
+	{
+		title: "Resume",
+		type: "string",
+		href: "#",
+		categories: [],
+	},
+	{
+		title: "Contact",
+		type: "string",
+		href: "#footer",
+		categories: [],
+	},
+]} />
+
+
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<Jumbo name="Rishi Prasanna" job="Web Developer" />
+
+<Carousel items={[
+    {title: "Ron Beard's Portfolio", description: "...frick just happened", href: "", src: "/"},
+    {title: "Destroy", description: "A high-end 18-style sci-fi font created by Rishi Prasanna, available for just $10", href: "", src: "/"},
+    {title: "Abby Dewstow's Portfolio", description: "...frick just happened", href: "", src: "/"},
+]} />
+
+<About header="About Me" about="Rishi Prasanna is a Web Developer & Software Engineer based in California. He strives to build attractive visual experiences for clients and potential customers, backed up with experience in Cloud Computing." />
+
+</div>
+</div>
+
+</Layout>
